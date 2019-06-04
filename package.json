@@ -1,0 +1,24 @@
+{
+  "name": "heycolor",
+  "version": "1.0.0",
+  "description": "HeyColor 是一个简单高效的的图片颜色提取类库",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zmofei/HeyColor.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zmofei/HeyColor/issues"
+  },
+  "homepage": "https://github.com/zmofei/HeyColor#readme",
+  "devDependencies": {
+    "rollup-plugin-terser": "^5.0.0",
+    "rollup": "^1.13.1"
+  }
+}
