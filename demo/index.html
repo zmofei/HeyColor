@@ -1,0 +1,54 @@
+<html>
+
+<head>
+    <title>Hey Color 给你颜色瞧瞧</title>
+    <meta charset="utf-8">
+    <script src="../dist/heyColor.js" type="text/javascript"></script>
+    <link type="text/css" rel="stylesheet" href="../demo/index.css" />
+</head>
+
+<body>
+    <div><img src="./demo.jpg" width="500px;" /></div>
+    <div>
+        <span>计算用时：</span>
+        <span id="loadTime"></span>
+        <span>ms</span>
+    </div>
+    <div>
+        <span>主色调：</span><span id="mainColor" class="color-area"></span>
+    </div>
+    <div>
+        <span>配色：</span><span id="pattern" class="color-area"></span>
+    </div>
+    <script>
+        const image = new Image();
+        image.src = './demo.jpg'
+        image.onload = function() {
+            //
+
+            const stateTime = new Date();
+            let hey = new HeyColor(image);
+            const mainColor = hey.getMainColor();
+            const pattern = hey.getPattern();
+            const usedTime = new Date() - stateTime;
+            document.getElementById('loadTime').innerText = usedTime;
+            //
+            let mainColorDom = document.createElement('span');
+            mainColorDom.style.background = `rgb(${mainColor[0]},${mainColor[1]},${mainColor[2]})`;
+            document.getElementById('mainColor').appendChild(mainColorDom);
+            //
+
+            const patternDom = document.createDocumentFragment();
+            for (var i = 0; i < pattern.length; i++) {
+                let patternSubDom = document.createElement('span');
+                patternSubDom.style.background = `rgb(${pattern[i][0]},${pattern[i][1]},${pattern[i][2]})`;
+                patternDom.appendChild(patternSubDom);
+            }
+            document.getElementById('pattern').appendChild(patternDom);
+
+            // console.log(hey)
+        }
+    </script>
+</body>
+
+</html>
